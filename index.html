@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chapter 47 Candle Of Life - FIXED SIMPLE WORKING</title>
+<style>
+body{margin:0;overflow:hidden;background:#000;color:#fff;font-family:monospace}
+#story{position:absolute;inset:0;z-index:100;background:#0a0800;overflow-y:auto;padding:15px}
+.hud{position:absolute;background:rgba(20,15,0,0.9);border:2px solid #ffcc33;padding:8px;border-radius:8px}
+#hudL{top:5px;left:5px;width:340px}
+#hudR{top:5px;right:5px;width:380px}
+#hudB{bottom:5px;left:5px;width:450px;display:none}
+#map{position:absolute;bottom:5px;right:5px;width:160px;height:160px;background:#000;border:2px solid #ffcc33}
+.bar{width:100%;height:16px;background:#000;border:1px solid #ffcc33;margin:3px 0}
+.fill{height:100%}
+button{background:#ffcc33;color:#000;border:none;padding:6px 10px;margin:2px;cursor:pointer;font-weight:bold}
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<div id="story">
+<h2 style="text-align:center;color:#ffcc33">CHAPTER 47: Candle Of Life - House No Electricity</h2>
+<div style="max-width:800px;margin:auto;background:#1a1500;padding:12px;border:1px solid #ffcc33;white-space:pre-wrap;font-size:12px">
+Once upon a time house no electricity. People house Enlightenment poorest living lack economy survive save money save candles only used needed night. 4 kids playing candles 3 kids humble Sebu Ali Cea not using lit fire. 1 pride Budgo conceiting want lit fire playing fires. After nights all gone. 1,000 candles bought by mother Gelaika strict mother Budgo. Gelaika noticed 1,000 candles used punished spank 10 times Budgo cried discipline. Gelaika: Are you learned lesson! Budgo no! Why wasting 1,000 candles 1 month! Budgo I don't waste! Gelaika: What hell lying I know every move saw playing candles 1 month tricked happy but after 1 month know peeped window before sleep still not slept playing 1,000 candles days. How could do this why not respecting savings. Don't you know bought 1,000 candles only emergency so when 1,000 candles home nothing worry but what did you do still playing. Wasted buy because poor economy if don't save money candles can't survive night dim how eat night dark must think wisely good than bad. Budgo understand save things survive crisis. Gelaika last chance prove not ever waste again 1,000 candles bought emergency. Last 2 months happened Budgo still play childish not mature love childish. Suddenly Spirit Of Light Candle Of Life goes house Enlightenment home Budgo acting stupid child. Candle Of Life wants scare Budgo scared ghosts. Candle Of Life said boo!!. Budgo scared Who are you why following don't hurt I don't know you! Candle Of Life appeared. Candle Of Life: don't you know me see manners you do before time scolded mother not saving needed that's why called Candle Of Life. If still playing 1,000 candles every month don't regret too late where can you eat when dark will eat strange creatures like Lion alive carnivores. Be careful if don't see anything without candle gives life will eat you too just like alive carnivore animals you must not eat. Budgo endangered didn't believe disappeared. 2nd month night Budgo still playing last 1,000 candles pride Candle Of Life don't want care decision waster not saving ignite fire no more fire scratch no more candles ignite night. When mother Gelaika know again Budgo Gelaika sobbed Budgo we have no money buy again where can we find food now without Candle Of Life Budgo Ahhm because like playing cards Gelaika exactly don't do understand now difficult find food because can't see food refrigerator waste 1,000 candles again 2nd month Now know how difficult Now 2nd punishment must find food outside humble without flashlight. When Budgo going outside finding food without Candle Of Life Budgo find food forest deep inside touch food with alive Lion pluck didn't know pig but plucked night Lion lacerated eaten lion gulped flesh meat. Story ends mother Gelaika hungry don't want wait Budgo kid because knows Budgo eaten lion punishment not saving future starved beat clock defeat 8 am morning. Gelaika finds friend house Enlightenment good understanding learns lesson If time save things then time avoid dying finding nothing Gelaika survived people sharing foods saving things money. Moral: If need survive need save money things needed humble. If becomes stupid don't care still waste things important life money pride punishes own good punish more more regret pain.
+</div>
+<center><p style="color:#ffcc33">NEW SIMPLE: Dark House + Candle Light + Forest Lion - WASD Move | E Save | F Light | Mouse Click | Q Inventory | K Skills | R Mother</p><button onclick="startGame()" style="font-size:20px;background:#ffcc33;color:#000;padding:12px 30px">START CANDLE OF LIFE - WORKING</button></center>
+</div>
+
+<div class="hud" id="hudL">
+<b>Budgo vs Sebu Ali Cea Humble</b><br>
+<select id="sel" style="width:100%"><option>Budgo Pride Waster 1000 Candles</option><option>Sebu Ali Cea Humble Save</option></select>
+Lv <span id="lv">1</span> SP <span id="sp">3</span>
+<div>HP</div><div class="bar"><div id="hp" class="fill" style="width:100%;background:#ff3333"></div></div>
+<div>1000 Candles <span id="cNum">1000</span></div><div class="bar"><div id="cand" class="fill" style="width:100%;background:#ffcc33"></div></div>
+<div>Economy Save Money</div><div class="bar"><div id="eco" class="fill" style="width:80%;background:#33ff66"></div></div>
+<div>XP</div><div class="bar"><div id="xp" class="fill" style="width:0%;background:#aa33ff"></div></div>
+<div>Month <span id="mo">1</span> | Food <span id="foodTxt">Can't see dark</span></div>
+</div>
+
+<div class="hud" id="hudR">
+<b id="qM">MAIN: 1000 Candles Economy</b><div id="qD" style="font-size:11px">House no electricity poorest. Sebu Ali Cea humble not lit fire. Budgo pride lit fire playing. 1000 candles gone. Mother Gelaika strict spank 10 times. Candle Of Life Spirit Boo!! warns save. If still waste will eat Lion alive carnivores without candle gives life. 2nd month no more fire scratch no candles ignite. Punishment find food forest without flashlight. Lion lacerated eaten gulped flesh meat. Gelaika beat clock 8am morning survived sharing foods saving things money.</div><hr><div id="qS" style="font-size:11px"></div>
+</div>
+
+<div class="hud" id="hudB">
+<h4>Inventory</h4><div id="inv" style="font-size:11px">- 1000 Candles emergency only<br>- Fire scratch lit fire<br>- Food refrigerator dark can't see<br>- Money poorest lack economy<br>- Candle Of Life Spirit Boo!!<br>- Lion forest eats Budgo<br>- Clock 8am morning</div>
+<button onclick="saveC()">E Save Candle Humble</button><button onclick="lightC()">F Light Candle</button><button onclick="callM()">R Call Mother Gelaika</button><button onclick="this.parentElement.style.display='none'">Close</button>
+</div>
+
+<canvas id="map"></canvas>
+<div id="msg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#ffcc33;font-size:24px;display:none;z-index:50;background:rgba(0,0,0,0.8);padding:10px;border:2px solid #ffcc33"></div>
+
+<script type="module">
+import * as THREE from 'three';
+let scene,camera,renderer,player,keys={},on=false,fp=false;
+let ST={hp:100,max:100,cand:100,eco:80,xp:0,lv:1,sp:3,month:1};
+let enemies=[],foods=[],candleLight=null;
+window.startGame=()=>{document.getElementById('story').style.display='none';init();};
+function init(){
+ on=true;
+ scene=new THREE.Scene(); scene.background=new THREE.Color(0x050300);
+ scene.fog=new THREE.Fog(0x050300,10,40);
+ camera=new THREE.PerspectiveCamera(70,innerWidth/innerHeight,0.1,1000);
+ renderer=new THREE.WebGLRenderer({antialias:true});
+ renderer.setSize(innerWidth,innerHeight);
+ document.body.appendChild(renderer.domElement);
+ scene.add(new THREE.AmbientLight(0x332200,0.4));
+ let dl=new THREE.DirectionalLight(0xffcc88,0.3); dl.position.set(5,10,5); scene.add(dl);
+ let ground=new THREE.Mesh(new THREE.PlaneGeometry(100,100), new THREE.MeshStandardMaterial({color:0x0f0a00}));
+ ground.rotation.x=-Math.PI/2; scene.add(ground);
+ // House walls
+ let wallMat=new THREE.MeshStandardMaterial({color:0x1a1000});
+ let w1=new THREE.Mesh(new THREE.BoxGeometry(24,5,1), wallMat); w1.position.set(0,2.5,-12); scene.add(w1);
+ let w2=new THREE.Mesh(new THREE.BoxGeometry(1,5,24), wallMat); w2.position.set(-12,2.5,0); scene.add(w2);
+ let w3=new THREE.Mesh(new THREE.BoxGeometry(1,5,24), wallMat); w3.position.set(12,2.5,0); scene.add(w3);
+ let w4=new THREE.Mesh(new THREE.BoxGeometry(24,5,1), wallMat); w4.position.set(0,2.5,12); scene.add(w4);
+ // Fridge
+ let fridge=new THREE.Mesh(new THREE.BoxGeometry(2,2.5,1), new THREE.MeshStandardMaterial({color:0xcccccc})); fridge.position.set(-8,1.25,-8); scene.add(fridge);
+ // Forest
+ let fg=new THREE.Mesh(new THREE.PlaneGeometry(40,40), new THREE.MeshStandardMaterial({color:0x0a1a0a})); fg.rotation.x=-Math.PI/2; fg.position.set(0,0.01,35); scene.add(fg);
+ for(let i=0;i<12;i++){let tr=new THREE.Mesh(new THREE.CylinderGeometry(0.3,0.4,4,6), new THREE.MeshStandardMaterial({color:0x1a3a1a})); tr.position.set((Math.random()-0.5)*30,2,30+Math.random()*15); scene.add(tr);}
+ // Player Budgo
+ let pg=new THREE.Group();
+ let b=new THREE.Mesh(new THREE.CapsuleGeometry(0.4,0.9,4,8), new THREE.MeshStandardMaterial({color:0xffcc99})); b.position.y=0.9; pg.add(b);
+ let fl=new THREE.Mesh(new THREE.SphereGeometry(0.12,8,8), new THREE.MeshStandardMaterial({color:0xffcc33,emissive:0xffcc33,emissiveIntensity:1})); fl.position.set(0.4,1.2,0.2); pg.add(fl);
+ pg.userData.fl=fl;
+ pg.position.set(0,0.9,5); scene.add(pg); player=pg;
+ // Candle light
+ candleLight=new THREE.PointLight(0xffcc33,1.2,15,1.2); candleLight.position.set(0,1.2,5); scene.add(candleLight);
+ // NPCs
+ function addNPC(x,z,txt,col){
+   let g=new THREE.Mesh(new THREE.CapsuleGeometry(0.35,0.8,4,8), new THREE.MeshStandardMaterial({color:col}));
+   g.position.set(x,0.7,z); g.userData={txt:txt}; scene.add(g); return g;
+ }
+ let n1=addNPC(-5,0,2,"Sebu Ali Cea: We humble not using lit fire! Save candles emergency only!",0x66ff66);
+ let n2=addNPC(5,0,2,"Gelaika: 10 times spank! 1000 candles gone! Why not respecting savings! Poor economy!",0xff6666);
+ let n3=addNPC(0,0,-6,"Candle Of Life: Boo!! If still playing 1000 candles will eat Lion alive carnivores without candle gives life!",0xffcc33);
+ // Foods
+ for(let i=0;i<8;i++){let f=new THREE.Mesh(new THREE.SphereGeometry(0.25,6,6), new THREE.MeshStandardMaterial({color:0xff4444})); f.position.set((Math.random()-0.5)*18,0.25,(Math.random()-0.5)*18); scene.add(f); foods.push(f);}
+ // Lion
+ function addE(x,z,boss,hp){
+   let g=new THREE.Group();
+   let body=new THREE.Mesh(new THREE.BoxGeometry(boss?1.6:0.7,0.8,1.8), new THREE.MeshStandardMaterial({color:boss?0xff8800:0x333333}));
+   body.position.y=0.6; g.add(body);
+   let head=new THREE.Mesh(new THREE.SphereGeometry(boss?0.6:0.3,8,8), new THREE.MeshStandardMaterial({color:0xffaa00})); head.position.set(1,0.8,0); g.add(head);
+   g.position.set(x,0,z); g.userData={hp:hp,max:hp,boss:boss}; scene.add(g); enemies.push(g);
+ }
+ addE(0,0,32,true,140);
+ addE(8,0,30,false,50);
+ addE(-8,0,28,false,50);
+ addE(0,0,0,false,40);
+
+ window.addEventListener('keydown',e=>{
+   keys[e.key.toLowerCase()]=true;
+   let k=e.key.toLowerCase();
+   if(k=='f') fp=!fp;
+   if(k=='q'){let el=document.getElementById('hudB'); el.style.display=el.style.display=='none'?'block':'none';}
+   if(k=='e') saveC();
+   if(k=='r') callM();
+   if(k=='f' && e.shiftKey){} // placeholder
+ });
+ window.addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
+ window.addEventListener('mousedown',()=>{if(on) doHit();});
+ window.addEventListener('mousemove',e=>{if(on && document.pointerLockElement) player.rotation.y-=e.movementX*0.003;});
+ renderer.domElement.addEventListener('click',()=>{renderer.domElement.requestPointerLock();});
+
+ animate(); updateHUD();
+}
+function doHit(){
+ enemies.forEach(en=>{
+   if(en.position.distanceTo(player.position)<3){
+     en.userData.hp-=15;
+     if(en.userData.hp<=0){scene.remove(en); enemies=enemies.filter(e=>e!=en); ST.xp+=en.userData.boss?100:30; if(enemies.length==0) win();}
+   }
+ });
+ foods.forEach((f,i)=>{if(f.position.distanceTo(player.position)<1.8){scene.remove(f); foods.splice(i,1); ST.eco=Math.min(100,ST.eco+5); ST.xp+=10; showM("Found Food! With Candle Light!");}});
+ // talk NPCs nearby
+ // simple check distance to NPCs - we stored earlier? Use scene children
+ scene.children.forEach(ch=>{if(ch.userData && ch.userData.txt && ch.position.distanceTo(player.position)<3){document.getElementById('qD').innerText=ch.userData.txt;}});
+ updateHUD();
+}
+window.saveC=()=>{
+ ST.cand=Math.min(100,ST.cand+15); ST.eco=Math.min(100,ST.eco+8); ST.xp+=20; ST.hp=Math.min(ST.max,ST.hp+5);
+ document.getElementById('qD').innerText="Humble like Sebu Ali Cea not using lit fire! Save money candles emergency only! Save things survive crisis!";
+ showM("SAVED! Humble +15 Candles");
+ updateHUD();
+};
+window.lightC=()=>{
+ if(ST.cand<=0){showM("NO CANDLES! Dark! Lion eats you!"); return;}
+ ST.cand=Math.max(0,ST.cand-5); ST.xp+=8;
+ if(candleLight){candleLight.intensity=2.5; setTimeout(()=>{candleLight.intensity=1.2;},250);}
+ showM("CANDLE OF LIFE LIGHTS!");
+ updateHUD();
+};
+window.callM=()=>{
+ ST.eco=Math.min(100,ST.eco+10); ST.cand=Math.min(100,ST.cand+8);
+ document.getElementById('qD').innerText="Gelaika: 10 times spank! Why wasting 1000 candles! Poor economy can't survive night dark how eat!";
+ showM("Mother Gelaika: Save Economy!");
+ updateHUD();
+};
+function showM(t){let el=document.getElementById('msg'); el.innerText=t; el.style.display='block'; setTimeout(()=>el.style.display='none',1200);}
+function updateHUD(){
+ document.getElementById('hp').style.width=ST.hp/ST.max*100+"%";
+ document.getElementById('cand').style.width=ST.cand+"%";
+ document.getElementById('cNum').innerText=Math.floor(ST.cand*10);
+ document.getElementById('eco').style.width=ST.eco+"%";
+ document.getElementById('xp').style.width=ST.xp+"%";
+ document.getElementById('mo').innerText=ST.month;
+ document.getElementById('foodTxt').innerText=ST.cand>20?"Can see with candle light":"Can't see dark - Lion!";
+ let side=document.getElementById('qS');
+ side.innerHTML="Candles "+Math.floor(ST.cand*10)+"/1000 Foods "+foods.length+" Enemies "+enemies.length+"<br>Month "+ST.month+" E save humble F light emergency R mother<br>Goal survive 8am morning light - find food refrigerator dark needs candle";
+ if(ST.xp>=100){ST.lv++; ST.xp=0; ST.sp++; ST.max+=10; ST.hp=ST.max; document.getElementById('lv').innerText=ST.lv; document.getElementById('sp').innerText=ST.sp;}
+}
+function win(){
+ document.getElementById('qM').innerText="CANDLE OF LIFE - Gelaika Survived 8AM!";
+ document.getElementById('qD').innerHTML="Gelaika beat clock 8am morning survived sharing foods saving things money! Moral: Save money things needed humble! Pride waste punishes regret pain!";
+ setTimeout(()=>{alert("YOU WIN Chapter 47!\nBudgo wasted 1000 candles\nGelaika spank 10 times\nCandle Of Life Boo warns\nLion eats Budgo without candle\nGelaika survived 8am morning sharing foods");},800);
+}
+function animate(){
+ if(!on) return;
+ requestAnimationFrame(animate);
+ let spd=0.12+ST.eco*0.0008;
+ if(keys['w']) player.translateZ(-spd);
+ if(keys['s']) player.translateZ(spd*0.5);
+ if(keys['a']) player.translateX(-spd*0.6);
+ if(keys['d']) player.translateX(spd*0.6);
+ if(ST.cand<100) ST.cand+=0.02;
+ if(candleLight){candleLight.position.copy(player.position); candleLight.position.y+=1.1;}
+ // flicker
+ if(player.userData.fl && Math.random()<0.15){player.userData.fl.scale.setScalar(0.8+Math.random()*0.5);}
+ player.position.x=Math.max(-11,Math.min(11,player.position.x));
+ player.position.z=Math.max(-11,Math.min(45,player.position.z));
+ enemies.forEach(en=>{
+   if(en.position.distanceTo(player.position)<14){
+     en.lookAt(player.position);
+     let dir=new THREE.Vector3().subVectors(player.position,en.position).normalize().multiplyScalar(en.userData.boss?0.022:0.015);
+     en.position.add(dir);
+     if(en.position.distanceTo(player.position)<1.4){
+       if(ST.cand<15) ST.hp-=0.45; else ST.hp-=0.2;
+     }
+   }
+ });
+ if(fp){camera.position.copy(player.position).add(new THREE.Vector3(0,1,0.2));}
+ else {let off=new THREE.Vector3(0,5,9).applyQuaternion(player.quaternion); camera.position.copy(player.position).add(off); camera.lookAt(player.position.clone().add(new THREE.Vector3(0,0.8,0)));}
+
+ let ctx=document.getElementById('map').getContext('2d');
+ if(!ctx) return;
+ ctx.clearRect(0,0,160,160); ctx.fillStyle="#000"; ctx.fillRect(0,0,160,160);
+ ctx.fillStyle="#221500"; ctx.fillRect(20,20,80,80);
+ ctx.fillStyle="#0a1a0a"; ctx.fillRect(20,110,80,30);
+ ctx.fillStyle="#ffcc33"; ctx.fillRect(60+player.position.x*2,60+player.position.z*2,4,4);
+ foods.forEach(f=>{ctx.fillStyle="#ff4444"; ctx.fillRect(60+f.position.x*2,60+f.position.z*2,2,2);});
+ enemies.forEach(en=>{ctx.fillStyle=en.userData.boss?"#ff8800":"#555"; ctx.fillRect(60+en.position.x*2,60+en.position.z*2,3,3);});
+ if(ST.hp<=0){alert("Eaten by Lion! No candle! Lion lacerated gulped flesh meat! Save 1000 candles emergency only!"); location.reload();}
+ renderer.render(scene,camera);
+}
+</script>
+</body>
+</html>
